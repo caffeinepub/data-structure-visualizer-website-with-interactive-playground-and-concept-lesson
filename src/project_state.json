@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a complete data structure visualizer website that teaches data structure concepts through clear visual/animated explanations and provides an interactive playground for students, with a neat and easy-to-use UI.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal academic logo mark with nodes-and-links motif (dsvis-logo.dim_512x512.png)\n- Wide hero illustration showing abstract data structure shapes (arrays, nodes, tree) in a clean flat style (dsvis-hero.dim_1600x600.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-the-core-site-structure-for-a-complete-data-structure-visualizer-website-with-clear-navigation-home-data-structures-algorithms-playground-and-about-pages",
+      "title": "Create the core site structure for a complete Data Structure Visualizer website with clear navigation: Home, Data Structures, Algorithms, Playground, and About pages.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-consistent-neat-visual-theme-colors-typography-spacing-and-component-styling-suitable-for-a-student-focused-educational-tool-and-apply-it-across-all-pages",
+      "title": "Implement a consistent, neat visual theme (colors, typography, spacing, and component styling) suitable for a student-focused educational tool, and apply it across all pages.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-concept-lessons-experience-for-data-structures-that-explains-concepts-in-english-using-concise-text-sections-and-a-paired-visual-demo-panel-include-at-minimum-array-linked-list-stack-queue-binary-search-tree-heap-and-graph",
+      "title": "Build a “Concept Lessons” experience for data structures that explains concepts in English using concise text sections and a paired visual demo panel. Include at minimum: Array, Linked List, Stack, Queue, Binary Search Tree, Heap, and Graph.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-interactive-playground-where-students-can-manipulate-a-selected-data-structure-and-see-updates-visually-provide-controls-for-common-operations-e-g-insert-delete-search-peek-pop-enqueue-dequeue-as-relevant-reset-and-load-a-sample-scenario",
+      "title": "Create an interactive Playground where students can manipulate a selected data structure and see updates visually. Provide controls for common operations (e.g., insert, delete, search/peek/pop/enqueue/dequeue as relevant), reset, and load a sample scenario.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-step-by-step-animation-controls-for-visualizations-play-pause-step-forward-and-optional-step-back-where-feasible-and-speed-control-ensure-operations-are-understandable-highlight-active-nodes-indices-and-show-brief-operation-captions",
+      "title": "Add step-by-step animation controls for visualizations: Play/Pause, Step Forward (and optional Step Back where feasible), and Speed control. Ensure operations are understandable (highlight active nodes/indices and show brief operation captions).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-algorithm-visualizations-at-minimum-sorting-bubble-and-insertion-and-graph-traversal-bfs-and-dfs-with-the-same-step-animation-controls-and-clear-highlighting-of-active-elements",
+      "title": "Implement algorithm visualizations (at minimum): Sorting (Bubble and Insertion) and Graph Traversal (BFS and DFS) with the same step/animation controls and clear highlighting of active elements.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-integrate-the-frontend-with-the-backend-using-react-query-for-loading-lesson-content-and-presets-including-loading-and-error-ui-states",
+      "title": "Integrate the frontend with the backend using React Query for loading lesson content and presets, including loading and error UI states.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-ui-is-accessible-and-classroom-friendly-keyboard-operable-controls-sufficient-color-contrast-readable-font-sizes-and-clear-empty-states-tooltips-for-controls",
+      "title": "Ensure the UI is accessible and classroom-friendly: keyboard-operable controls, sufficient color contrast, readable font sizes, and clear empty states/tooltips for controls.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a complete data structure visualizer website with clear visual/animated concept explanations and a neat UI.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add an interactive playground where students can experiment with data structures visually (interactive controls and examples).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add a backend content API in the single Motoko actor to serve curated lesson metadata and example presets used by the frontend (e.g., list of topics, per-topic lesson text sections, and sample input sets for the playground).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Data Structure Visualizer website with interactive playground and concept lessons",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

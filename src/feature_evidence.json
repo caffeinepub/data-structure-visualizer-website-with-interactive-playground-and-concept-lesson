@@ -1,0 +1,193 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-the-core-site-structure-for-a-complete-data-structure-visualizer-website-with-clear-navigation-home-data-structures-algorithms-playground-and-about-pages",
+      "featureTitle": "Create the core site structure for a complete Data Structure Visualizer website with clear navigation: Home, Data Structures, Algorithms, Playground, and About pages.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/AlgorithmsPage.tsx",
+        "frontend/src/pages/DataStructuresPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/NotFoundPage.tsx",
+        "frontend/src/pages/PlaygroundPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-consistent-neat-visual-theme-colors-typography-spacing-and-component-styling-suitable-for-a-student-focused-educational-tool-and-apply-it-across-all-pages",
+      "featureTitle": "Implement a consistent, neat visual theme (colors, typography, spacing, and component styling) suitable for a student-focused educational tool, and apply it across all pages.",
+      "files": [
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-concept-lessons-experience-for-data-structures-that-explains-concepts-in-english-using-concise-text-sections-and-a-paired-visual-demo-panel-include-at-minimum-array-linked-list-stack-queue-binary-search-tree-heap-and-graph",
+      "featureTitle": "Build a “Concept Lessons” experience for data structures that explains concepts in English using concise text sections and a paired visual demo panel. Include at minimum: Array, Linked List, Stack, Queue, Binary Search Tree, Heap, and Graph.",
+      "files": [
+        "frontend/src/components/lessons/LessonViewer.tsx",
+        "frontend/src/components/lessons/TopicSidebar.tsx",
+        "frontend/src/features/visualizations/demos/DataStructureDemoPanel.tsx",
+        "frontend/src/features/visualizations/viz/ArrayViz.tsx",
+        "frontend/src/features/visualizations/viz/BSTViz.tsx",
+        "frontend/src/features/visualizations/viz/GraphViz.tsx",
+        "frontend/src/features/visualizations/viz/HeapViz.tsx",
+        "frontend/src/features/visualizations/viz/LinkedListViz.tsx",
+        "frontend/src/features/visualizations/viz/QueueViz.tsx",
+        "frontend/src/features/visualizations/viz/StackViz.tsx",
+        "frontend/src/pages/DataStructuresPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-interactive-playground-where-students-can-manipulate-a-selected-data-structure-and-see-updates-visually-provide-controls-for-common-operations-e-g-insert-delete-search-peek-pop-enqueue-dequeue-as-relevant-reset-and-load-a-sample-scenario",
+      "featureTitle": "Create an interactive Playground where students can manipulate a selected data structure and see updates visually. Provide controls for common operations (e.g., insert, delete, search/peek/pop/enqueue/dequeue as relevant), reset, and load a sample scenario.",
+      "files": [
+        "frontend/src/components/playground/PlaygroundControls.tsx",
+        "frontend/src/components/playground/SamplePresetPicker.tsx",
+        "frontend/src/features/visualizations/demos/DataStructureDemoPanel.tsx",
+        "frontend/src/pages/PlaygroundPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-step-by-step-animation-controls-for-visualizations-play-pause-step-forward-and-optional-step-back-where-feasible-and-speed-control-ensure-operations-are-understandable-highlight-active-nodes-indices-and-show-brief-operation-captions",
+      "featureTitle": "Add step-by-step animation controls for visualizations: Play/Pause, Step Forward (and optional Step Back where feasible), and Speed control. Ensure operations are understandable (highlight active nodes/indices and show brief operation captions).",
+      "files": [
+        "frontend/src/features/visualizations/components/AnimationControls.tsx",
+        "frontend/src/features/visualizations/components/StepCaption.tsx",
+        "frontend/src/features/visualizations/demos/DataStructureDemoPanel.tsx",
+        "frontend/src/features/visualizations/stepper/stepper.ts",
+        "frontend/src/pages/AlgorithmsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-algorithm-visualizations-at-minimum-sorting-bubble-and-insertion-and-graph-traversal-bfs-and-dfs-with-the-same-step-animation-controls-and-clear-highlighting-of-active-elements",
+      "featureTitle": "Implement algorithm visualizations (at minimum): Sorting (Bubble and Insertion) and Graph Traversal (BFS and DFS) with the same step/animation controls and clear highlighting of active elements.",
+      "files": [
+        "frontend/src/features/visualizations/algorithms/BubbleSortViz.tsx",
+        "frontend/src/features/visualizations/algorithms/GraphTraversalViz.tsx",
+        "frontend/src/features/visualizations/algorithms/InsertionSortViz.tsx",
+        "frontend/src/features/visualizations/viz/GraphViz.tsx",
+        "frontend/src/pages/AlgorithmsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-integrate-the-frontend-with-the-backend-using-react-query-for-loading-lesson-content-and-presets-including-loading-and-error-ui-states",
+      "featureTitle": "Integrate the frontend with the backend using React Query for loading lesson content and presets, including loading and error UI states.",
+      "files": [
+        "frontend/src/components/common/ErrorState.tsx",
+        "frontend/src/components/common/LoadingState.tsx",
+        "frontend/src/lib/queries/lessons.ts",
+        "frontend/src/lib/queries/presets.ts",
+        "frontend/src/lib/queries/topics.ts",
+        "frontend/src/pages/DataStructuresPage.tsx",
+        "frontend/src/pages/PlaygroundPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-ui-is-accessible-and-classroom-friendly-keyboard-operable-controls-sufficient-color-contrast-readable-font-sizes-and-clear-empty-states-tooltips-for-controls",
+      "featureTitle": "Ensure the UI is accessible and classroom-friendly: keyboard-operable controls, sufficient color contrast, readable font sizes, and clear empty states/tooltips for controls.",
+      "files": [
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/components/playground/PlaygroundControls.tsx",
+        "frontend/src/features/visualizations/components/AnimationControls.tsx",
+        "frontend/src/features/visualizations/viz/ArrayViz.tsx",
+        "frontend/src/features/visualizations/viz/BSTViz.tsx",
+        "frontend/src/features/visualizations/viz/GraphViz.tsx",
+        "frontend/src/features/visualizations/viz/HeapViz.tsx",
+        "frontend/src/features/visualizations/viz/LinkedListViz.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

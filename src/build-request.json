@@ -1,0 +1,174 @@
+{
+  "kind": "build_request",
+  "title": "Data Structure Visualizer website with interactive playground and concept lessons",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create the core site structure for a complete Data Structure Visualizer website with clear navigation: Home, Data Structures, Algorithms, Playground, and About pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "i want the complete website of data structure visuvalizer ... it shold be very clear and neat and it should have intractive play ground.."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A top-level navigation is present on all pages and works without reloads.",
+        "Each page has a clear header and content area and is responsive on mobile and desktop."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a consistent, neat visual theme (colors, typography, spacing, and component styling) suitable for a student-focused educational tool, and apply it across all pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "it shold be very clear and neat"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages share the same typography scale, spacing system, and component styling.",
+        "Layout remains readable and uncluttered at common breakpoints (mobile/tablet/desktop)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a “Concept Lessons” experience for data structures that explains concepts in English using concise text sections and a paired visual demo panel. Include at minimum: Array, Linked List, Stack, Queue, Binary Search Tree, Heap, and Graph.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "to exaplain the concepts of data structues in the visuval form so that students can understand it clearly"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can select a data structure and see an overview explanation plus a live visualization panel.",
+        "At least the listed data structures have lesson pages/sections with consistent structure (Overview, Operations, Complexity, Common pitfalls)."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create an interactive Playground where students can manipulate a selected data structure and see updates visually. Provide controls for common operations (e.g., insert, delete, search/peek/pop/enqueue/dequeue as relevant), reset, and load a sample scenario.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "it should have intractive play ground.."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Playground supports interactive operations for each implemented data structure type with immediate visual feedback.",
+        "Playground provides Reset and Load Sample actions and validates user input (e.g., numeric ranges, required fields)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add step-by-step animation controls for visualizations: Play/Pause, Step Forward (and optional Step Back where feasible), and Speed control. Ensure operations are understandable (highlight active nodes/indices and show brief operation captions).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "visuval form so that students can understand it clearly"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can control animation playback and speed for operations.",
+        "Visual state clearly highlights what changed (e.g., compared nodes, moved pointers, swapped elements) with a short caption per step."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement algorithm visualizations (at minimum): Sorting (Bubble and Insertion) and Graph Traversal (BFS and DFS) with the same step/animation controls and clear highlighting of active elements.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "data structure visuvalizer ... explain the concepts"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Sorting visualizations show array state changes over time with highlighted comparisons/swaps.",
+        "BFS/DFS visualizations show visited order and frontier/stack behavior with node/edge highlighting."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add a backend content API in the single Motoko actor to serve curated lesson metadata and example presets used by the frontend (e.g., list of topics, per-topic lesson text sections, and sample input sets for the playground).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "complete website of data structure visuvalizer ... explain the concepts ... interactive play ground"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes query methods to list available lessons/topics and fetch lesson details/presets by id.",
+        "Frontend loads lesson/preset content via the generated canister actor (no hard dependency on external APIs)."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Integrate the frontend with the backend using React Query for loading lesson content and presets, including loading and error UI states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Lesson/preset data is fetched through React Query with caching.",
+        "Users see clear skeleton/loading states and a readable error message with a retry action when calls fail."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Ensure the UI is accessible and classroom-friendly: keyboard-operable controls, sufficient color contrast, readable font sizes, and clear empty states/tooltips for controls.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "students can understand it clearly"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All playground controls are reachable via keyboard and have accessible labels.",
+        "Text and key visualization colors meet reasonable contrast and remain understandable without relying on color alone (e.g., add shapes/outlines/labels)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under the frontend immutable paths listed in SYSTEM_CONTEXT (compose existing UI components instead).",
+    "Backend must remain a single Motoko actor; only add migration code if persistent state upgrades are introduced."
+  ],
+  "nonGoals": [
+    "User accounts, profiles, or saving progress across devices (unless explicitly requested later).",
+    "Real-time collaboration or multi-user sessions.",
+    "Integrations with external databases or third-party APIs/services.",
+    "Covering every possible data structure/algorithm beyond the minimum set listed in requirements."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimal academic logo mark with nodes-and-links motif (dsvis-logo.dim_512x512.png)",
+      "Wide hero illustration showing abstract data structure shapes (arrays, nodes, tree) in a clean flat style (dsvis-hero.dim_1600x600.png)"
+    ],
+    "edits": []
+  }
+}

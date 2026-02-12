@@ -1,0 +1,357 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Data Structure Visualizer (Lessons + Playground + Algorithm Animations)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create core multi-page site structure with clear client-side navigation (Home, Data Structures, Algorithms, Playground, About).",
+      "acceptanceCriteria": [
+        "A top-level navigation is present on all pages and works without reloads.",
+        "Each page has a clear header and content area and is responsive on mobile and desktop."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell with client-side routing for Home, Data Structures, Algorithms, Playground, About, and a Not Found route; ensure navigation occurs without page reloads."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared layout with a persistent header/nav and main content container used on all pages. Use the shadcn-ui component library to provide consistent navigation and header controls. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the Home page content (hero, quick links to main sections) and ensure it renders within the shared layout; wire in generated assets at frontend/public/assets/generated/dsvis-logo.dim_512x512.png and frontend/public/assets/generated/dsvis-hero.dim_1600x600.png."
+        },
+        {
+          "path": "frontend/src/pages/DataStructuresPage.tsx",
+          "operation": "create",
+          "description": "Create the Data Structures page that hosts the Concept Lessons browsing/selection experience and demo panel container."
+        },
+        {
+          "path": "frontend/src/pages/AlgorithmsPage.tsx",
+          "operation": "create",
+          "description": "Create the Algorithms page that hosts sorting and graph traversal visualizations with shared animation controls."
+        },
+        {
+          "path": "frontend/src/pages/PlaygroundPage.tsx",
+          "operation": "create",
+          "description": "Create the interactive Playground page for manipulating selected data structures with controls and visualization area."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Create an About page describing the tool and how to use lessons/playground/animations."
+        },
+        {
+          "path": "frontend/src/pages/NotFoundPage.tsx",
+          "operation": "create",
+          "description": "Create a simple Not Found page and ensure it is reachable via the router for unknown routes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement a consistent, neat student-focused visual theme (typography, spacing, colors, and component styling) across all pages.",
+      "acceptanceCriteria": [
+        "All pages share the same typography scale, spacing system, and component styling.",
+        "Layout remains readable and uncluttered at common breakpoints (mobile/tablet/desktop)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global styling entry point with Tailwind base layers and a consistent design system (CSS variables for colors, typography defaults, spacing rhythm), aligned to the existing Tailwind + shadcn-ui token approach."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust/confirm theme configuration (container, typography plugin usage, and color token mappings) to support the site-wide educational theme and consistent breakpoints."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Apply consistent layout spacing and typography to header/footer/main container. Use shadcn-ui layout primitives (e.g., Card/Separator) where appropriate to unify styling. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build a Concept Lessons experience for the minimum set of data structures with consistent lesson sections and a paired visual demo panel.",
+      "acceptanceCriteria": [
+        "Users can select a data structure and see an overview explanation plus a live visualization panel.",
+        "At least the listed data structures have lesson pages/sections with consistent structure (Overview, Operations, Complexity, Common pitfalls)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/DataStructuresPage.tsx",
+          "operation": "modify",
+          "description": "Implement the Concept Lessons UI: topic selector, lesson content panel with consistent sections (Overview, Operations, Complexity, Common pitfalls), and a paired visual demo panel that updates per selection. Use shadcn-ui components (e.g., Tabs/Accordion/Card) to keep lesson structure consistent. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/lessons/LessonViewer.tsx",
+          "operation": "create",
+          "description": "Create a reusable lesson viewer that renders curated lesson text into structured sections and coordinates a selected visualization demo panel."
+        },
+        {
+          "path": "frontend/src/components/lessons/TopicSidebar.tsx",
+          "operation": "create",
+          "description": "Create a sidebar/list for selecting among the minimum data structure topics (Array, Linked List, Stack, Queue, Binary Search Tree, Heap, Graph). Use shadcn-ui navigation/list components for clear selection states. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/features/visualizations/demos/DataStructureDemoPanel.tsx",
+          "operation": "create",
+          "description": "Create a demo panel that hosts the appropriate visualization (array/linked list/stack/queue/BST/heap/graph) and can run a small illustrative scenario tied to the lesson selection."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/ArrayViz.tsx",
+          "operation": "create",
+          "description": "Create an Array visualization component used by lessons and playground; support highlighting indices and showing captions per step."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/LinkedListViz.tsx",
+          "operation": "create",
+          "description": "Create a Linked List visualization component with node boxes and pointer/next indicators; support highlighting active nodes and pointer movement per step."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/StackViz.tsx",
+          "operation": "create",
+          "description": "Create a Stack visualization component showing push/pop with top highlight and step captions."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/QueueViz.tsx",
+          "operation": "create",
+          "description": "Create a Queue visualization component showing enqueue/dequeue with head/tail markers and step captions."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/BSTViz.tsx",
+          "operation": "create",
+          "description": "Create a Binary Search Tree visualization component with node highlighting for comparisons, insertion path, and traversal steps."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/HeapViz.tsx",
+          "operation": "create",
+          "description": "Create a Heap visualization component (array + tree view as needed) supporting swap highlights and heapify steps."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/GraphViz.tsx",
+          "operation": "create",
+          "description": "Create a Graph visualization component with node/edge highlighting, visited styling, and frontier/stack display integration for traversals."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create an interactive Playground to manipulate selected data structures with common operations, reset, and load-sample actions plus input validation.",
+      "acceptanceCriteria": [
+        "Playground supports interactive operations for each implemented data structure type with immediate visual feedback.",
+        "Playground provides Reset and Load Sample actions and validates user input (e.g., numeric ranges, required fields)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PlaygroundPage.tsx",
+          "operation": "modify",
+          "description": "Implement the Playground UI: data structure selector, operation controls, visualization area, and panels for Reset and Load Sample actions. Use shadcn-ui form components (Select/Input/Button) to keep controls neat and consistent. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/playground/PlaygroundControls.tsx",
+          "operation": "create",
+          "description": "Create reusable operation controls that adapt per selected data structure (insert/delete/search/peek/pop/enqueue/dequeue, etc.), including validation and disabled states."
+        },
+        {
+          "path": "frontend/src/components/playground/SamplePresetPicker.tsx",
+          "operation": "create",
+          "description": "Create a Load Sample UI that lists presets for the selected topic and applies them to the playground state. Use shadcn-ui components for list/dialog/picker UX. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/features/playground/models/dataStructureEngines.ts",
+          "operation": "create",
+          "description": "Add front-end-only engines for each data structure that apply operations to state and emit visualization steps (for immediate visual feedback and animation)."
+        },
+        {
+          "path": "frontend/src/features/visualizations/demos/DataStructureDemoPanel.tsx",
+          "operation": "modify",
+          "description": "Extend the demo panel to support the playground mode (render current state + step highlights) for each implemented data structure."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add step-by-step animation controls (Play/Pause, Step Forward, optional Step Back, Speed) with clear step captions and highlighting.",
+      "acceptanceCriteria": [
+        "Users can control animation playback and speed for operations.",
+        "Visual state clearly highlights what changed (e.g., compared nodes, moved pointers, swapped elements) with a short caption per step."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/visualizations/stepper/stepper.ts",
+          "operation": "create",
+          "description": "Create a shared step/animation controller (timeline of steps, play/pause, step forward/back, speed control) usable by all visualizations without duplicating logic."
+        },
+        {
+          "path": "frontend/src/features/visualizations/components/AnimationControls.tsx",
+          "operation": "create",
+          "description": "Create a consistent control bar with Play/Pause, Step Forward, optional Step Back, and Speed slider; include accessible labels and tooltips. Use shadcn-ui components (Button/Slider/Tooltip) to standardize controls. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/features/visualizations/components/StepCaption.tsx",
+          "operation": "create",
+          "description": "Create a small caption/status component that displays the current step description and non-color indicators (e.g., labels) for what is highlighted."
+        },
+        {
+          "path": "frontend/src/features/visualizations/demos/DataStructureDemoPanel.tsx",
+          "operation": "modify",
+          "description": "Wire the shared stepper and AnimationControls into the data-structure demo panel so operations can be animated step-by-step with captions and highlighting."
+        },
+        {
+          "path": "frontend/src/pages/AlgorithmsPage.tsx",
+          "operation": "modify",
+          "description": "Wire the shared stepper and AnimationControls into algorithm visualizations so they follow the same interaction model as data structures."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement algorithm visualizations (Bubble/Insertion sort, BFS/DFS) using the same step/animation controls and clear highlighting.",
+      "acceptanceCriteria": [
+        "Sorting visualizations show array state changes over time with highlighted comparisons/swaps.",
+        "BFS/DFS visualizations show visited order and frontier/stack behavior with node/edge highlighting."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AlgorithmsPage.tsx",
+          "operation": "modify",
+          "description": "Implement the Algorithms page UI with sections for Sorting (Bubble, Insertion) and Graph Traversal (BFS, DFS); ensure each visualization is selectable and uses the shared animation controls."
+        },
+        {
+          "path": "frontend/src/features/visualizations/algorithms/BubbleSortViz.tsx",
+          "operation": "create",
+          "description": "Create a Bubble Sort visualization producing step sequences with array state snapshots, highlighted comparisons/swaps, and per-step captions."
+        },
+        {
+          "path": "frontend/src/features/visualizations/algorithms/InsertionSortViz.tsx",
+          "operation": "create",
+          "description": "Create an Insertion Sort visualization producing step sequences with key selection, shifts/inserts highlighted, and per-step captions."
+        },
+        {
+          "path": "frontend/src/features/visualizations/algorithms/GraphTraversalViz.tsx",
+          "operation": "create",
+          "description": "Create a combined BFS/DFS visualization that produces step sequences showing visited order and frontier/stack behavior, with node/edge highlighting and captions."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/GraphViz.tsx",
+          "operation": "modify",
+          "description": "Extend GraphViz to support traversal-specific highlighting (visited, active, frontier/stack membership) in a way that remains understandable without relying on color alone."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Integrate frontend with backend using React Query to load lesson content and example presets with loading and error UI states.",
+      "acceptanceCriteria": [
+        "Lesson/preset data is fetched through React Query with caching.",
+        "Users see clear skeleton/loading states and a readable error message with a retry action when calls fail."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/backendClient.ts",
+          "operation": "create",
+          "description": "Create a small typed backend client wrapper that uses the project’s core-infrastructure backend connection configuration to call the generated canister actor methods defined in frontend/src/backend.d.ts. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/queries/topics.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for loading topics and topic details with caching, refetch control, and stable query keys."
+        },
+        {
+          "path": "frontend/src/lib/queries/lessons.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for loading lessons for a topic and mapping lesson content into the Concept Lessons viewer model."
+        },
+        {
+          "path": "frontend/src/lib/queries/presets.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for loading example presets for a topic and exposing them to the Playground sample loader."
+        },
+        {
+          "path": "frontend/src/components/common/LoadingState.tsx",
+          "operation": "create",
+          "description": "Create a reusable loading UI (including skeletons where appropriate). Use shadcn-ui Skeleton components to provide consistent loading placeholders. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/common/ErrorState.tsx",
+          "operation": "create",
+          "description": "Create a reusable error UI that shows a readable message and a Retry action button. Use shadcn-ui Alert/Button components for consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/DataStructuresPage.tsx",
+          "operation": "modify",
+          "description": "Wire React Query hooks to load topics/lessons and show LoadingState/ErrorState with retry; remove hardcoded lesson dependencies in the Concept Lessons UI."
+        },
+        {
+          "path": "frontend/src/pages/PlaygroundPage.tsx",
+          "operation": "modify",
+          "description": "Wire React Query hooks to load presets by selected topic and show LoadingState/ErrorState with retry in the sample preset flow."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Ensure the UI is accessible and classroom-friendly (keyboard operability, contrast, readable sizes, and clear empty states/tooltips).",
+      "acceptanceCriteria": [
+        "All playground controls are reachable via keyboard and have accessible labels.",
+        "Text and key visualization colors meet reasonable contrast and remain understandable without relying on color alone (e.g., add shapes/outlines/labels)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Ensure header navigation is keyboard operable, includes visible focus states, and uses semantic landmarks (header/nav/main) with skip-to-content support where appropriate."
+        },
+        {
+          "path": "frontend/src/components/playground/PlaygroundControls.tsx",
+          "operation": "modify",
+          "description": "Add accessible labels (aria-label/aria-describedby), keyboard-friendly interaction patterns, validation messaging, and clear empty states/tooltips for each operation control. Use shadcn-ui Tooltip to explain controls succinctly. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/features/visualizations/components/AnimationControls.tsx",
+          "operation": "modify",
+          "description": "Ensure all animation buttons and the speed slider are keyboard reachable, have accessible names, and provide tooltips/help text; ensure focus order is logical. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Refine global font sizing, line-height, and focus ring styling; tune color tokens for sufficient contrast and avoid conveying meaning by color alone (support outlines/labels in visualization styles)."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/ArrayViz.tsx",
+          "operation": "modify",
+          "description": "Add non-color cues for highlights (e.g., outlines, badges/labels for active index) and ensure text remains readable at common breakpoints."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/LinkedListViz.tsx",
+          "operation": "modify",
+          "description": "Add non-color cues for highlights (e.g., thicker borders, pointer labels) and ensure keyboard users can understand current step via caption updates."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/BSTViz.tsx",
+          "operation": "modify",
+          "description": "Add non-color cues for active comparisons/path (e.g., outline patterns/labels) to keep steps understandable for color-blind users."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/HeapViz.tsx",
+          "operation": "modify",
+          "description": "Add non-color cues for swap/compare states (e.g., outlines and step labels) and ensure small screens remain readable."
+        },
+        {
+          "path": "frontend/src/features/visualizations/viz/GraphViz.tsx",
+          "operation": "modify",
+          "description": "Add distinct shapes/outlines/labels for visited/active/frontier nodes and ensure edge highlighting is not color-only."
+        }
+      ]
+    }
+  ]
+}

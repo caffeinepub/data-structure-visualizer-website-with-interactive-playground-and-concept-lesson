@@ -1,0 +1,121 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-11T16:19:51.595Z",
+  "summary": "Diff adds a TanStack Router-based site shell with top navigation, lesson sidebar/viewer components, a playground state/control system, and algorithm visualizations with step/animation controls. A Motoko backend actor is added with topic/lesson/preset storage and query methods. Several requested items are not evidenced in the diff summary (notably React Query integration details, full playground per-structure operations/validation, required images, and step-by-step controls for data structure operations).",
+  "missing_requirements": [
+    {
+      "id": "REQ-4",
+      "requirement": "Playground supports interactive operations for each implemented data structure type with immediate visual feedback; includes Reset + Load Sample; validates user input.",
+      "reason": "The reducer appears to treat all structures as a simple list (append/delete/search/pop). There is no clear per-structure behavior (e.g., queue-specific dequeue/peek, BST insert/search affecting tree shape, heap operations, graph operations), and no explicit input validation beyond non-empty checks. While presets and reset exist, full required operations/validation are not evidenced.",
+      "evidence": [
+        "frontend/src/features/playground/models/usePlaygroundState.ts",
+        "frontend/src/components/playground/PlaygroundControls.tsx",
+        "frontend/src/components/playground/SamplePresetPicker.tsx",
+        "frontend/src/features/visualizations/demos/DataStructureDemoPanel.tsx"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Add step-by-step animation controls (Play/Pause, Step Forward, Speed) for visualizations of operations; highlight active nodes/indices and show brief captions per step.",
+      "reason": "Animation controls and captions are implemented for algorithm visualizations via a stepper, but there is no evidence that data-structure Playground operations (insert/delete/search/etc.) are broken into steps with Play/Pause/Step/Speed and per-step highlighting/captions.",
+      "evidence": [
+        "frontend/src/features/visualizations/components/AnimationControls.tsx",
+        "frontend/src/features/visualizations/components/StepCaption.tsx",
+        "frontend/src/features/visualizations/stepper/stepper.ts",
+        "frontend/src/features/playground/models/usePlaygroundState.ts"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "Integrate frontend with backend using React Query for loading lesson content and presets, including loading/error states with retry.",
+      "reason": "Components reference custom hooks (useLessons/usePresets) and show LoadingState/ErrorState, but the diff summary does not show any React Query setup (QueryClientProvider) nor the query hook implementations using React Query. Only TanStack Router usage is evidenced.",
+      "evidence": [
+        "frontend/src/components/lessons/LessonViewer.tsx",
+        "frontend/src/components/playground/SamplePresetPicker.tsx",
+        "frontend/src/App.tsx",
+        "frontend/src/components/common/LoadingState.tsx",
+        "frontend/src/components/common/ErrorState.tsx"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Ensure UI is accessible and classroom-friendly: keyboard-operable controls, accessible labels, sufficient contrast, clear empty states/tooltips.",
+      "reason": "Some accessibility is present (e.g., aria-labels in AnimationControls, tooltips in PlaygroundControls), but the diff summary does not provide enough evidence that all playground controls are keyboard-operable and fully labeled, nor that visualizations avoid reliance on color alone across the app.",
+      "evidence": [
+        "frontend/src/features/visualizations/components/AnimationControls.tsx",
+        "frontend/src/components/playground/PlaygroundControls.tsx",
+        "frontend/src/features/visualizations/viz/GraphViz.tsx"
+      ]
+    },
+    {
+      "requirement": "Provide required images: dsvis-logo.dim_512x512.png and dsvis-hero.dim_1600x600.png.",
+      "reason": "The logo is referenced in the layout, but the diff summary does not include the actual image assets being added, and there is no evidence of the hero illustration asset or its usage.",
+      "evidence": [
+        "frontend/src/components/layout/SiteLayout.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Backend provides mutation/update endpoints (addTopic, addLessonToTopic, addExamplePreset) rather than only serving curated content.",
+      "reason": "REQ-7 asks for a backend content API to serve curated lesson metadata and presets (list/fetch). The diff adds write/update methods that were not requested and may be out of scope.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Footer includes third-party promotional link/attribution to caffeine.ai with UTM parameters.",
+      "reason": "Not requested in any requirement and introduces an external link/integration-like behavior (even if only a link).",
+      "evidence": [
+        "frontend/src/components/layout/SiteLayout.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.68,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/common/ErrorState.tsx",
+    "frontend/src/components/common/LoadingState.tsx",
+    "frontend/src/components/layout/SiteLayout.tsx",
+    "frontend/src/components/lessons/LessonViewer.tsx",
+    "frontend/src/components/lessons/TopicSidebar.tsx",
+    "frontend/src/components/playground/PlaygroundControls.tsx",
+    "frontend/src/components/playground/SamplePresetPicker.tsx",
+    "frontend/src/features/playground/models/usePlaygroundState.ts",
+    "frontend/src/features/visualizations/algorithms/BubbleSortViz.tsx",
+    "frontend/src/features/visualizations/algorithms/GraphTraversalViz.tsx",
+    "frontend/src/features/visualizations/algorithms/InsertionSortViz.tsx",
+    "frontend/src/features/visualizations/components/AnimationControls.tsx",
+    "frontend/src/features/visualizations/components/StepCaption.tsx",
+    "frontend/src/features/visualizations/demos/DataStructureDemoPanel.tsx",
+    "frontend/src/features/visualizations/stepper/stepper.ts",
+    "frontend/src/features/visualizations/viz/ArrayViz.tsx",
+    "frontend/src/features/visualizations/viz/BSTViz.tsx",
+    "frontend/src/features/visualizations/viz/GraphViz.tsx",
+    "frontend/src/features/visualizations/viz/HeapViz.tsx",
+    "frontend/src/features/visualizations/viz/LinkedListViz.tsx",
+    "frontend/src/features/visualizations/viz/QueueViz.tsx",
+    "frontend/src/features/visualizations/viz/StackViz.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/queries/lessons.ts",
+    "frontend/src/lib/queries/presets.ts",
+    "frontend/src/lib/queries/topics.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/AlgorithmsPage.tsx",
+    "frontend/src/pages/DataStructuresPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/NotFoundPage.tsx",
+    "frontend/src/pages/PlaygroundPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
